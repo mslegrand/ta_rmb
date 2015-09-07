@@ -28,10 +28,12 @@ To use:
 2. place both lexers and the module containedunder USER_HOME/.textadept /lexers and USERHOME/.textadept/modules
 3. place the following 4 lines inside your USER_HOME/.textadept/init.lua file :
 
+```
 textadept.file_types.extensions.rmd='rmd'
 textadept.file_types.patterns['^---'] = 'rmd'
 markdown = require('markdown')
 rmd=require('rmd')
+```
 
 Your final director structure should contain:
 USERHOME/.textadept/
