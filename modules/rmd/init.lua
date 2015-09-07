@@ -1,20 +1,23 @@
 -- A rmd module for the
 -- [Textadept](http://foicica.com/textadept/) editor with some short cuts and
 -- snippets for writing
--- [rmd](http://daringfireball.net/projects/rmd/).<br>
+-- [rmd](http://rmarkdown.rstudio.com/).<br>
 --
 -- Installation:<br>
 -- Download an
--- [archived](https://github.com/rgieseke/ta-rmd/archives/master)
+-- [archived](https://github.com/mslegrand/ta_rmb)
 -- version or clone the git repository into your `.textadept` directory:
 --
 --     cd ~/.textadept/modules
---     git clone https://github.com/rgieseke/ta-rmd.git \
+--     git clone https://github.com/mslegrand/ta_rmb.git \
 --         rmd
 --
--- The [source](https://github.com/rgieseke/ta-rmd) is on GitHub,
+-- The [source](https://github.com/mslegrand/ta_rmb) is on GitHub,
 -- released under the
 -- [MIT license](http://www.opensource.org/licenses/mit-license.php).
+-- This is an adaptation of [annotated source](http://rgieseke.github.com/ta-markdown/).
+
+
 
 local M = {}
 
@@ -40,6 +43,11 @@ end)
 
 
 -- ## Commands
+
+
+-- editing.comment_string.moonscript = '--'
+-- run.run_commands.moon = 'moonc -p %(filename)'
+-- Rscript -e "require(knitr); require(markdown); knit('$(RMDFILE).rmd', '$(RMDFILE).md'); markdownToHTML('$(RMDFILE).md', '$(RMDFILE).html', options=c('use_xhtml', 'base64_images')); browseURL(paste('file://', file.path(getwd(),'$(RMDFILE).html'), sep=''))"
 
 -- Underlines the current line.<br>
 -- Parameter:<br>
@@ -137,6 +145,8 @@ keys.rmd = {
   [OSX and 'm_' or 'a_'] = { editing.enclose, '_', '_' },
   [OSX and 'cm`' or 'ca`'] = { editing.enclose, '`', '`' },
 }
+
+
 
 -- ## Snippets.
 
