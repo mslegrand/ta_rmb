@@ -57,4 +57,9 @@ M._rules = {
   {'operator', operator},
 }
 
+M._foldsymbols = {
+  [l.OPERATOR] = {['{'] = 1, ['}'] = -1},
+  _patterns = {'[{}]'}
+}
+
 return M
