@@ -36,7 +36,7 @@ rmd=require('rmd')
 ```
 
 Your final director structure should contain:
-USERHOME/.textadept/
-USERHOME/.textadept/lexers/rstats.lua
-USERHOME/.textadept/lexers/rmd.lua
-USERHOME/.textadept/modules/rmd/init.lua
+- USERHOME/.textadept/
+- USERHOME/.textadept/lexers/rstats.lua
+- USERHOME/.textadept/lexers/rmd.lua
+- USERHOME/.textadept/modules/rmd/init.lua
