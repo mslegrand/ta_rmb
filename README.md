@@ -7,8 +7,8 @@ Advantages:
 -  Extremely Customizable 
 -  Can view multiple files (in seperate windows) concurrently
 -  Can view the same file (in multiple locations)
--  Bookmarks
--  
+-  Supports Bookmarks
+ 
 Disadvantages:
 
 -  In the infancy stage:
