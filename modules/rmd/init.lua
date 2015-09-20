@@ -37,17 +37,37 @@ editing.char_matches.rmd = {
 -- Sets default buffer properties for rmd files.
 events.connect(events.LEXER_LOADED, function(lang)
   if lang == 'rmd' then
-    buffer.tab_width = 4
+    buffer.tab_width = 2
   end
 end)
 
+-- Todo fix commands so that we have 3 menu commands (correctly labeled)
+-- ## Desired Commands 
+-- 1. knit:  'Rscript -e "require(knitr); knit(\'%e.Rmd\', \'%e.md\');"'
+-- 2. markdown2html: 'Rscript -e "require(markdown); markdownToHTML(\'%e.md\', \'%e.html\', options=c(\'use_xhtml\', \'base64_images\'));"'
+-- 3. browse: 'Rscript -e "browseURL(paste(\'file://\', file.path(getwd(),\'%e.html\'), sep=\'\'))"'
 
--- ## Commands
+-- local rmd_commands
+-- make table of rmd_cmds
+-- 
+--~ textadept.menu.context_menu[#textadept.menu.context_menu+1]={
+--~ title='rmd',
+--~ {'knit', M.knit}
+--~ }
 
+-- textadept.run.compile_commands.rmd = 'Rscript -e "require(knitr); knit(\'%e.Rmd\', \'%e.md\');"'
+-- textadept.run.build_commands.rmd = 'Rscript -e "require(markdown); markdownToHTML(\'%e.md\', \'%e.html\', options=c(\'use_xhtml\', \'base64_images\'));"'
 
--- editing.comment_string.moonscript = '--'
--- run.run_commands.moon = 'moonc -p %(filename)'
--- Rscript -e "require(knitr); require(markdown); knit('$(RMDFILE).rmd', '$(RMDFILE).md'); markdownToHTML('$(RMDFILE).md', '$(RMDFILE).html', options=c('use_xhtml', 'base64_images')); browseURL(paste('file://', file.path(getwd(),'$(RMDFILE).html'), sep=''))"
+-- This is a kludge to run browse under the command name of run
+textadept.run.run_commands.rmd = 'Rscript -e "browseURL(paste(\'file://\', file.path(getwd(),\'%e.html\'), sep=\'\'))"'
+
+textadept.run.compile_commands.rmd = 'Rscript -e "library(rmarkdown); render(\'%e.md\');"'
+
+-- This is a kludge to run knit and markdown2html as a single command under the name of compile
+-- textadept.run.compile_commands.rmd = 'Rscript -e "require(knitr); knit(\'%e.Rmd\', \'%e.md\');require(markdown); markdownToHTML(\'%e.md\', \'%e.html\', options=c(\'use_xhtml\', \'base64_images\'));"'
+
+-- textadept.run.run_commands.rmd = 'Rscript -e "require(markdown); markdownToHTML(\'%e.md\', \'%e.html\', options=c(\'use_xhtml\', \'base64_images\'));"'
+-- textadept.run.run_commands.rmd = 'Rscript -e "browseURL(paste(\'file://\', file.path(getwd(),\'%e.html\'), sep=\'\'))"'
 
 -- Underlines the current line.<br>
 -- Parameter:<br>
@@ -171,5 +191,9 @@ snippets.rmd = {
   -- Image.
   i = '![%1(Alt text)](%2(/path/to/img.jpg "Optional title"))',
 }
+
+-- Todo snippets:
+-- block insertion
+-- 
 
 return M
